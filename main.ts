@@ -4,7 +4,7 @@ function position (x: number, y: number) {
     yPosition = y
 }
 function TempChange () {
-    if (input.temperature() <= 19) {
+    if (input.temperature() <= 20) {
         for (let index = 0; index < 6; index++) {
             Plot(500)
         }
@@ -51,7 +51,7 @@ let xPosition = 0
 radio.setGroup(10)
 xPosition = 0
 yPosition = 0
-while (input.temperature() > 19) {
+while (input.temperature() > 20) {
     Movestart()
 }
 TempChange()
