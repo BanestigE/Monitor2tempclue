@@ -53,6 +53,7 @@ xPosition = 0
 yPosition = 0
 while (input.temperature() > 20) {
     Movestart()
+    led.plot(xPosition - 5, yPosition)
 }
 TempChange()
 basic.forever(function () {
