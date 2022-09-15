@@ -25,7 +25,7 @@ radio.onReceivedValue(function (name, value) {
     if (name == "xPos") {
         position(value, yPosition)
     } else if (name == "yPos") {
-        position(value, xPosition)
+        position(xPosition, value)
     } else if (name == "interact" && value == 2) {
         basic.showNumber(1)
     } else {
