@@ -18,8 +18,9 @@ function TempChange () {
         FinalY = randint(0, 4)
         led.plot(FinalX, FinalY)
     }
-    radio.sendValue("xTarget", FinalX)
+    radio.sendValue("xTarget", FinalX + 5)
     radio.sendValue("yTarget", FinalY)
+    Done = true
 }
 radio.onReceivedValue(function (name, value) {
     if (name == "xPos") {
@@ -27,7 +28,7 @@ radio.onReceivedValue(function (name, value) {
     } else if (name == "yPos") {
         position(xPosition, value)
     } else if (name == "interact" && value == 2) {
-        basic.showNumber(1)
+        basic.showNumber(2)
     } else {
     	
     }
@@ -44,6 +45,7 @@ function Plot (num: number) {
 }
 let RandomY = 0
 let RandomX = 0
+let Done = false
 let FinalY = 0
 let FinalX = 0
 let yPosition = 0
@@ -58,4 +60,7 @@ while (input.temperature() > 20) {
 TempChange()
 basic.forever(function () {
     led.plot(xPosition - 5, yPosition)
+    if (Done) {
+        led.plot(FinalX, FinalY)
+    }
 })
